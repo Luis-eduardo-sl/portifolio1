@@ -60,7 +60,7 @@ function App() {
         </section>
 
         <section>
-          <div className="container m-auto px-4">
+          <div className="container m-auto px-4 py-12">
             <h2 className="text-2xl font-semibold">Projetos</h2>
             <div className="grid grid-cols-2 gap-10 mt-11">
               <div className="border border-gray-500 rounded-md p-5">
@@ -152,7 +152,7 @@ function App() {
           </div>
         </section>
 
-        <section className="mt-12">
+        <section className="py-10">
           <div className="container m-auto px-4">
             <h2 className="text-2xl font-semibold">Tecnologias</h2>
             <div className="mt-14">
@@ -214,6 +214,42 @@ function App() {
 
             </div>
           </div>
+        </section>
+
+        <section>
+          <div className="container m-auto px-4 py-14">
+            <h2 className="text-2xl font-semibold">Habilidades Adicionais</h2>
+              <div className="flex justify-between mt-12 w-[95%]">
+                <div>
+                  <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-5 before:absolute  relative left-5">Git</p>
+                </div>
+                <div>
+                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-5 before:absolute  relative left-5">Prisma</p>
+                </div>
+                <div>
+                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-5 before:absolute  relative left-5">Express.js</p>
+                </div>
+                <div>
+                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-5 before:absolute  relative left-5">Axios </p>
+                </div>
+              </div>
+
+              <div className="flex justify-around mt-6 w-[95%]">
+                <div>
+                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-5 before:absolute  relative left-5">Inglês Intermediario</p>
+                </div>
+                <div>
+                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-5 before:absolute  relative left-5">Scrum e Kanban</p>
+                </div>
+                <div>
+                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-5 before:absolute  relative left-5">Trabalho em equipe</p>
+                </div>
+              </div>
+          </div>
+        </section>
+
+        <section>
+          <div className="container m-auto px-4"></div>
         </section>
       </main>
     </>
