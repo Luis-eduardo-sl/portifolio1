@@ -203,7 +203,7 @@ function App() {
                 </div>
                 <span className="w-[50%] h-2 mt-2 bg-gradient-to-t from-blue-500 to-cyan-500 block rounded-md"></span>
               </div>
-              
+
               <div className="mt-8">
                 <div className="flex justify-between items-center">
                   <h2 className=" font-semibold">UI Figma</h2>
@@ -219,38 +219,66 @@ function App() {
         <section>
           <div className="container m-auto px-4 py-14">
             <h2 className="text-2xl font-semibold">Habilidades Adicionais</h2>
-              <div className="flex justify-between mt-12 w-[95%]">
-                <div>
-                  <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-5 before:absolute  relative left-5">Git</p>
-                </div>
-                <div>
+            <div className="flex justify-between mt-12 w-[95%]">
+              <div>
+                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-5 before:absolute  relative left-5">Git</p>
+              </div>
+              <div>
                 <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-5 before:absolute  relative left-5">Prisma</p>
-                </div>
-                <div>
+              </div>
+              <div>
                 <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-5 before:absolute  relative left-5">Express.js</p>
-                </div>
-                <div>
+              </div>
+              <div>
                 <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-5 before:absolute  relative left-5">Axios </p>
-                </div>
               </div>
+            </div>
 
-              <div className="flex justify-around mt-6 w-[95%]">
-                <div>
+            <div className="flex justify-around mt-6 w-[95%]">
+              <div>
                 <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-5 before:absolute  relative left-5">Inglês Intermediario</p>
-                </div>
-                <div>
-                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-5 before:absolute  relative left-5">Scrum e Kanban</p>
-                </div>
-                <div>
-                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-5 before:absolute  relative left-5">Trabalho em equipe</p>
-                </div>
               </div>
+              <div>
+                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-5 before:absolute  relative left-5">Scrum e Kanban</p>
+              </div>
+              <div>
+                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-5 before:absolute  relative left-5">Trabalho em equipe</p>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section>
-          <div className="container m-auto px-4"></div>
+        <section className="py-8">
+          <div className="container m-auto px-4">
+            <h2 className="text-2xl font-semibold">Sobre mim</h2>
+            <div className="mt-12 relative before:absolute before:top-0 before:left-16 before:rounded-full before:bottom-10 before:w-1 before:bg-white">
+              <div className="pl-24 mt-12 relative before:w-4 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500  before:absolute before:rounded-full before:left-[58px]">
+                <h3 className="absolute left-0 text-lg font-semibold">2019</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, atque? Impedit, veritatis necessitatibus. Deleniti velit eveniet asperiores fugiat aliquam fuga minus, nulla suscipit laborum facere sint vitae quos, et rerum?
+                </p>
+              </div>
+
+              <div className="pl-24 mt-12 relative before:w-4 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500  before:absolute before:rounded-full before:left-[58px]">
+                <h3 className="absolute left-0 text-lg font-semibold">2019</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, atque? Impedit, veritatis necessitatibus. Deleniti velit eveniet asperiores fugiat aliquam fuga minus, nulla suscipit laborum facere sint vitae quos, et rerum?
+                </p>
+              </div>
+
+              <div className="pl-24 mt-12 relative before:w-4 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500  before:absolute before:rounded-full before:left-[58px]">
+                <h3 className="absolute left-0 text-lg font-semibold">2019</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, atque? Impedit, veritatis necessitatibus. Deleniti velit eveniet asperiores fugiat aliquam fuga minus, nulla suscipit laborum facere sint vitae quos, et rerum?
+                </p>
+              </div>
+
+              <div className="pl-24 mt-12 relative before:w-4 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500  before:absolute before:rounded-full before:left-[58px]">
+                <h3 className="absolute left-0 text-lg font-semibold">2019</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, atque? Impedit, veritatis necessitatibus. Deleniti velit eveniet asperiores fugiat aliquam fuga minus, nulla suscipit laborum facere sint vitae quos, et rerum?
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
+        
       </main>
     </>
   );
