@@ -1,9 +1,11 @@
 import "./App.css";
 import Perfil from "./assets/perfil.png";
-import Perfil1 from "./assets/perfil (8).png";
+import Perfil1 from "./assets/perfil1.png";
 import Projeto1 from "./assets/protejo1.png";
 import Projeto2 from "./assets/projeto2.png";
 import Projeto3 from "./assets/projeto3.png";
+import Github from "./assets/github.svg";
+import Linkedin from "./assets/linkedin.svg";
 
 function App() {
   return (
@@ -39,10 +41,10 @@ function App() {
 
       <main>
         <section>
-          <div className="container m-auto px-4 py-10 flex gap-6">
+          <div className="container m-auto px-4 pt-12 sm:py-32 flex flex-col sm:flex-row gap-6">
             <div>
               <h2 className="font-bold text-4xl">Olá, meu nome é Luis,</h2>
-              <h1 className="font-bold text-4xl mt-1 gradient-text">
+              <h1 className="font-bold text-4xl mt-1 gradient-text running-text">
                 FullStack Developer
               </h1>
               <p className="mt-4 text-gray-400">
@@ -53,17 +55,16 @@ function App() {
               </p>
             </div>
             <div>
-              {/* <img src={Perfil} width={850}/> */}
-              <img src={Perfil1} width={850} />
+              <img src={Perfil1} className="w-[240px] m-auto sm:w-[560px] rounded-full shadow-lg shadow-blue-400" />
             </div>
           </div>
         </section>
 
         <section>
-          <div className="container m-auto px-4 py-12">
+          <div className="container m-auto px-4 py-4 sm:py-12">
             <h2 className="text-2xl font-semibold">Projetos</h2>
-            <div className="grid grid-cols-2 gap-10 mt-11">
-              <div className="border border-gray-500 rounded-md p-5">
+            <div className="flex flex-col sm:flex-row gap-10 mt-11">
+              <div className="border border-gray-500 rounded-md p-5 flex-1">
                 <img src={Projeto1} />
                 <h3 className="text-2xl font-semibold mt-8">
                   Sistema Administrativo
@@ -74,16 +75,16 @@ function App() {
                   usuarios, onibus e linhas, e tambem realizar a leitura dos
                   comentarios deixados no site publico...
                 </p>
-                <div className="flex justify-evenly mt-12">
-                  <button className="px-6 py-3 bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700">
+                <div className="flex mt-12 gap-2">
+                  <button className="flex-1 text-sm py-3 bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700">
                     Saiba mais
                   </button>
-                  <button className="px-6 py-3 border rounded-full hover:border-blue-500 hover:text-blue-500">
+                  <button className="flex-1 text-sm py-3 border rounded-full hover:border-blue-500 hover:text-blue-500">
                     Ver código
                   </button>
                 </div>
               </div>
-              <div className="border border-gray-500 rounded-md p-5">
+              <div className="border border-gray-500 rounded-md p-5 flex-1">
                 <img src={Projeto2} />
                 <h3 className="text-2xl font-semibold mt-8">Site de Recarga</h3>
                 <p className="text-gray-400 text-sm mt-2">
@@ -93,16 +94,18 @@ function App() {
                   página sobre, que esta interligada com o site
                   administrativo...
                 </p>
-                <div className="flex justify-evenly mt-12">
-                  <button className="px-6 py-3 bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700">
+                <div className="flex mt-12 gap-2">
+                  <button className="flex-1 text-sm py-3 bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700">
                     Saiba mais
                   </button>
-                  <button className="px-6 py-3 border rounded-full hover:border-blue-500 hover:text-blue-500">
+                  <button className="flex-1 text-sm py-3 border rounded-full hover:border-blue-500 hover:text-blue-500">
                     Ver código
                   </button>
                 </div>
               </div>
-              <div className="border border-gray-500 rounded-md p-5">
+            </div>
+            <div className="flex flex-col sm:flex-row gap-10 mt-11">
+              <div className="border border-gray-500 rounded-md p-5 flex-1">
                 <img src={Projeto3} />
                 <h3 className="text-2xl font-semibold mt-8">
                   Sistema de Ônibus
@@ -116,16 +119,16 @@ function App() {
                   ao problema como "saldo insuficiente" , "cartão não
                   encontrado" , etc)...
                 </p>
-                <div className="flex justify-evenly mt-12">
-                  <button className="px-6 py-3 bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700">
+                <div className="flex mt-12 gap-2">
+                  <button className="flex-1 text-sm py-3 bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700">
                     Saiba mais
                   </button>
-                  <button className="px-6 py-3 border rounded-full hover:border-blue-500 hover:text-blue-500">
+                  <button className="flex-1 text-sm py-3 border rounded-full hover:border-blue-500 hover:text-blue-500">
                     Ver código
                   </button>
                 </div>
               </div>
-              <div className="border border-gray-500 rounded-md p-5">
+              <div className="border border-gray-500 rounded-md p-5 flex-1">
                 <img src={Projeto3} />
                 <h3 className="text-2xl font-semibold mt-8">
                   Sistema de Ônibus
@@ -139,15 +142,16 @@ function App() {
                   ao problema como "saldo insuficiente" , "cartão não
                   encontrado" , etc)...
                 </p>
-                <div className="flex justify-evenly mt-12">
-                  <button className="px-6 py-3 bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700">
+                <div className="flex mt-12 gap-2">
+                  <button className="flex-1 text-sm py-3 bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700">
                     Saiba mais
                   </button>
-                  <button className="px-6 py-3 border rounded-full hover:border-blue-500 hover:text-blue-500">
+                  <button className="flex-1 text-sm py-3 border rounded-full hover:border-blue-500 hover:text-blue-500">
                     Ver código
                   </button>
                 </div>
               </div>
+
             </div>
           </div>
         </section>
@@ -167,9 +171,9 @@ function App() {
               <div className="mt-8">
                 <div className="flex justify-between items-center">
                   <h2 className=" font-semibold">JavaScript & Node.js</h2>
-                  <p className="text-gray-500">Avançado</p>
+                  <p className="text-gray-500">Intermediario</p>
                 </div>
-                <span className="w-[90%] h-2 mt-2 bg-gradient-to-t from-blue-500 to-cyan-500 block rounded-md"></span>
+                <span className="w-[88%] h-2 mt-2 bg-gradient-to-t from-blue-500 to-cyan-500 block rounded-md"></span>
               </div>
 
               <div className="mt-8">
@@ -219,30 +223,30 @@ function App() {
         <section>
           <div className="container m-auto px-4 py-14">
             <h2 className="text-2xl font-semibold">Habilidades Adicionais</h2>
-            <div className="flex justify-between mt-12 w-[95%]">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-20 mt-12 w-[95%]">
               <div>
-                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-5 before:absolute  relative left-5">Git</p>
+                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-6 before:absolute  relative left-5">Git</p>
               </div>
               <div>
-                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-5 before:absolute  relative left-5">Prisma</p>
+                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-6 before:absolute  relative left-5">Prisma</p>
               </div>
               <div>
-                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-5 before:absolute  relative left-5">Express.js</p>
+                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-6 before:absolute  relative left-5">Express.js</p>
               </div>
               <div>
-                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-5 before:absolute  relative left-5">Axios </p>
+                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-6 before:absolute  relative left-5">Axios </p>
               </div>
             </div>
 
-            <div className="flex justify-around mt-6 w-[95%]">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-20 mt-4 sm:mt-6 w-[95%]">
               <div>
-                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-5 before:absolute  relative left-5">Inglês Intermediario</p>
+                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-6 before:absolute  relative left-5">Inglês Intermediario</p>
               </div>
               <div>
-                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-5 before:absolute  relative left-5">Scrum e Kanban</p>
+                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-6 before:absolute  relative left-5">Scrum e Kanban</p>
               </div>
               <div>
-                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-5 before:absolute  relative left-5">Trabalho em equipe</p>
+                <p className="font-bold before:w-3 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500 before:block before:rounded-full before:mt-1 before:-left-6 before:absolute  relative left-5">Trabalho em equipe</p>
               </div>
             </div>
           </div>
@@ -278,8 +282,25 @@ function App() {
             </div>
           </div>
         </section>
-        
       </main>
+
+      <footer>
+        <div className="container m-auto flex justify-between px-4 py-6">
+          <div>
+            <p className="text-gray-300 text-sm">Copyright @ 2024</p>
+          </div>
+          <div>
+            <ul className="flex gap-4">
+              <li>
+                <a href=""><img src={Linkedin} alt="simbolo do linkedin" className="w-8" /></a>
+              </li>
+              <li>
+                <a href=""><img src={Github} alt="simbolo do Github" className="w-8" /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }

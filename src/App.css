@@ -1,9 +1,42 @@
 body {
   background-color: #000;
-  color: #fff
+  color: #fff;
 }
 
 .gradient-text {
   -webkit-background-clip: text;
-  @apply bg-gradient-to-t from-blue-500 to-cyan-500 text-transparent
+  @apply bg-gradient-to-t from-blue-500 to-cyan-500 text-transparent;
+  overflow: hidden;
+  border-right: 2px solid #fff;
+  animation: typing-text 5s steps(60) infinite, blink 0.75s step-end infinite, fade-out 4s infinite;
+  white-space: nowrap;
+  display: inline-block;
+  width: 0;
+}
+
+@keyframes typing-text {
+  from {
+    width: 0;
+  }
+  to {
+    width: 350px;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    border-color: #fff;
+  }
+  88% {
+    border-color: #fff;
+  }
+  100% {
+    border-color: transparent;
+  }
 }
