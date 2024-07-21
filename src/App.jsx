@@ -66,7 +66,7 @@ function App() {
                 </li>
               </ul>
             </div>
-            <div className="social-icons flex gap-4 hidden sm:flex">
+            <div className="flex gap-4 hidden sm:flex">
               <a href="https://github.com/Luis-eduardo-sl" target="_blank" rel="noopener noreferrer">
                 <img src={Github} alt="GitHub" className="w-6 h-6" />
               </a>
@@ -94,7 +94,7 @@ function App() {
               </p>
             </div>
             <div>
-              <img src={Perfil1} className="w-[240px] m-auto sm:w-[560px] rounded-full shadow-lg shadow-blue-400" />
+              <img src={Perfil1} alt='imagem de perfil de Luis' className="w-[240px] m-auto sm:w-[560px] rounded-full shadow-lg shadow-blue-400" />
             </div>
           </div>
         </section>
@@ -130,9 +130,9 @@ function App() {
                   <button
                     className="flex-1 text-sm py-3 bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700"
                     onClick={() => openModal({
-                      title: 'Sistema Administrativo',
+                      title: 'Aplicativo BioDex',
                       image: Projeto1,
-                      description: 'A função do site administrativo é que o administrador possa realizar os cruds de motorista, usuario, onibus e linhas, e tambem realizar a leitura dos comentarios deixados no site publico. O site tambem conta com um sistema de login onde o administrador só vai ter acesso as paginas após ter feito seu cadastro e login, na pagina inicial temos um grafico real feito com o chart.js e tambem contadores para cada tipo de usuario'
+                      description: 'Desenvolvimento de um aplicativo com gamificação para um parque municipal juqueriquere, com o objetivo de fazer com que o passeio ao parque fosse interessante para as diversas faixas etárias que visitam o parque'
                     })}
                   >
                     Saiba mais
@@ -157,8 +157,8 @@ function App() {
                   <button
                     className="flex-1 text-sm py-3 bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700"
                     onClick={() => openModal({
-                      title: 'Sistema Administrativo',
-                      image: Projeto1,
+                      title: 'Aplicativo Job',
+                      image: Projeto2,
                       description: 'A função do site administrativo é que o administrador possa realizar os cruds de motorista, usuario, onibus e linhas, e tambem realizar a leitura dos comentarios deixados no site publico. O site tambem conta com um sistema de login onde o administrador só vai ter acesso as paginas após ter feito seu cadastro e login, na pagina inicial temos um grafico real feito com o chart.js e tambem contadores para cada tipo de usuario'
                     })}
                   >
@@ -173,7 +173,7 @@ function App() {
 
             <div className="flex flex-col sm:flex-row gap-10 mt-11">
               <div className="border border-gray-500 rounded-md p-5 flex-1 bg-black bg-opacity-75">
-                <img src={Projeto33} />
+                <img src={Projeto33} alt='tela inicial do site administrativo' />
                 <h3 className="text-2xl font-semibold mt-8">Sistema Administrativo</h3>
                 <p className="text-gray-400 text-sm mt-2">
                   A função do sistema administrativo é que o administrador possa realizar a criação, leitura, edição e exclusão de motoristas, usuários, ônibus e linhas, e também realizar a leitura dos comentários deixados no site público...
@@ -183,7 +183,7 @@ function App() {
                     className="flex-1 text-sm py-3 bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700"
                     onClick={() => openModal({
                       title: 'Sistema Administrativo',
-                      image: Projeto1,
+                      image: Projeto33,
                       description: 'A função do site administrativo é que o administrador possa realizar os cruds de motorista, usuario, onibus e linhas, e tambem realizar a leitura dos comentarios deixados no site publico. O site tambem conta com um sistema de login onde o administrador só vai ter acesso as paginas após ter feito seu cadastro e login, na pagina inicial temos um grafico real feito com o chart.js e tambem contadores para cada tipo de usuario'
                     })}
                   >
@@ -195,7 +195,7 @@ function App() {
                 </div>
               </div>
               <div className="border border-gray-500 rounded-md p-5 flex-1 bg-black bg-opacity-75">
-                <img src={Projeto4} />
+                <img src={Projeto4} alt='tela inicial do site de recarga' />
                 <h3 className="text-2xl font-semibold mt-8">Site de Recarga</h3>
                 <p className="text-gray-400 text-sm mt-2">
                   A função do site de recarga é que o proprio usuário possa
@@ -208,9 +208,9 @@ function App() {
                   <button
                     className="flex-1 text-sm py-3 bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700"
                     onClick={() => openModal({
-                      title: 'Sistema Administrativo',
-                      image: Projeto1,
-                      description: 'A função do site administrativo é que o administrador possa realizar os cruds de motorista, usuario, onibus e linhas, e tambem realizar a leitura dos comentarios deixados no site publico. O site tambem conta com um sistema de login onde o administrador só vai ter acesso as paginas após ter feito seu cadastro e login, na pagina inicial temos um grafico real feito com o chart.js e tambem contadores para cada tipo de usuario'
+                      title: 'Site de Recarga',
+                      image: Projeto4,
+                      description: 'A função do site de recarga é que o proprio usuário possa fazer seu cadastro, sua recarga por meio do cpf vizualizar o horário das linhas e dar sugestões ou reclamações por meio da página sobre, que esta interligada com o site administrativo'
                     })}
                   >
                     Saiba mais
@@ -326,26 +326,22 @@ function App() {
             <div className="mt-12 relative before:absolute before:top-0 before:left-16 before:rounded-full before:bottom-10 before:w-1 before:bg-white">
               <div className="pl-24 mt-12 relative before:w-4 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500  before:absolute before:rounded-full before:left-[58px]">
                 <h3 className="absolute left-0 text-lg font-semibold">2019</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, atque? Impedit, veritatis necessitatibus. Deleniti velit eveniet asperiores fugiat aliquam fuga minus, nulla suscipit laborum facere sint vitae quos, et rerum?
-                </p>
+                <p>Com uma trajetória que combina experiência prática e aprendizado acadêmico, minha jornada no mundo da tecnologia começou com uma sólida base em administração e gerenciamento de processos. Trabalhei como Assistente Administrativo na Sabesp, onde aprendi a importância da organização e da eficiência. Atuei no gerenciamento o almoxarifado e o controle de estoque, habilidades que agora aplico para otimizar projetos de desenvolvimento e garantir que tudo funcione sem problemas.</p>
               </div>
 
               <div className="pl-24 mt-12 relative before:w-4 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500  before:absolute before:rounded-full before:left-[58px]">
-                <h3 className="absolute left-0 text-lg font-semibold">2019</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, atque? Impedit, veritatis necessitatibus. Deleniti velit eveniet asperiores fugiat aliquam fuga minus, nulla suscipit laborum facere sint vitae quos, et rerum?
-                </p>
+                <h3 className="absolute left-0 text-lg font-semibold">2023</h3>
+                <p>Meu interesse por tecnologia me levou a explorar o desenvolvimento web através do curso Técnico em Informática para Internet. Durante esse período, mergulhei no universo do desenvolvimento, aprendendo a trabalhar com React, HTML5, CSS3 e JavaScript. Esse conhecimento foi crucial para me preparar para desafios reais no campo do desenvolvimento e consolidar minha base técnica.</p>
               </div>
 
               <div className="pl-24 mt-12 relative before:w-4 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500  before:absolute before:rounded-full before:left-[58px]">
-                <h3 className="absolute left-0 text-lg font-semibold">2019</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, atque? Impedit, veritatis necessitatibus. Deleniti velit eveniet asperiores fugiat aliquam fuga minus, nulla suscipit laborum facere sint vitae quos, et rerum?
-                </p>
+                <h3 className="absolute left-0 text-lg font-semibold">2024</h3>
+                <p>Uma experiência marcante foi meu estágio na Prefeitura de Caraguatatuba. Nesse papel, fui responsável por garantir a conectividade e o bom funcionamento dos sistemas e equipamentos da organização. Diagnosticar problemas de conectividade e oferecer suporte técnico me ajudou a aprimorar minhas habilidades e a entender a importância de uma resolução rápida e eficaz de problemas.</p>
               </div>
 
               <div className="pl-24 mt-12 relative before:w-4 before:h-4 before:bg-gradient-to-t before:from-blue-500 before:to-cyan-500  before:absolute before:rounded-full before:left-[58px]">
-                <h3 className="absolute left-0 text-lg font-semibold">2019</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, atque? Impedit, veritatis necessitatibus. Deleniti velit eveniet asperiores fugiat aliquam fuga minus, nulla suscipit laborum facere sint vitae quos, et rerum?
-                </p>
+                <h3 className="absolute left-0 text-lg font-semibold">2024</h3>
+                <p>Atualmente, estou cursando Engenharia de Software e busco oportunidades para integrar uma equipe onde possa aplicar minhas habilidades e continuar aprendendo. Com experiência em metodologias ágeis como Scrum e Kanban, e um forte conhecimento em ferramentas como TypeScript e SQL, estou empolgado para colaborar em projetos desafiadores e criar soluções escaláveis e de alta qualidade.</p>
               </div>
             </div>
           </div>
@@ -356,7 +352,10 @@ function App() {
       <footer>
         <div className="container max-w-screen-lg m-auto flex justify-between px-4 py-6">
           <div>
-            <p className="text-gray-300 text-sm">Copyright @ 2024</p>
+            <p className="flex hidden sm:flex text-gray-300 text-sm">Copyright @ 2024</p>
+          </div>
+          <div>
+            <p className="text-gray-300 text-sm">luis0202.eduardo@gmail.com</p>
           </div>
           <div>
             <ul className="flex gap-4">
