@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, lazy, Suspense } from 'react';
 import "./App.css";
 import Perfil1 from "./assets/perfil.png";
 import Projeto1 from "./assets/biodex.png";
@@ -37,7 +37,7 @@ function App() {
   }, [isModalOpen]);
 
   return (
-    <body>
+    <div class='body'>
       <div class="background"></div>
       <header className="fixed top-0 left-4 right-4 bg-gray-800 rounded-full m-3 mx-auto max-w-screen-lg h-12 sm:h-16 sm:left-8 sm:right-8">
         <div className="container m-auto px-4 py-2 sm:py-4 max-w-screen-lg">
@@ -87,14 +87,14 @@ function App() {
                 FullStack Developer
               </h1>
               <p className="mt-4 text-gray-400">
-                Cursando engenharia de Software, meu objetivo é criar soluções
-                digitais inovadoras, colaborando com uma equipe dinâmica e
-                utilizando metodologias ágeis para garantir a melhor experiência
+                Cursando Engenharia de Software, meu objetivo é criar soluções
+                digitais inovadoras, com tecnologias de ponta, colaborando com uma equipe dinâmica e
+                utilizando metodologias ágeis e conceito de UI|UX para garantir a melhor experiência
                 para os usuários
               </p>
             </div>
             <div>
-              <img src={Perfil1} alt='imagem de perfil de Luis' className="w-[240px] m-auto sm:w-[560px] rounded-full shadow-lg shadow-blue-400" />
+              <img src={Perfil1} alt='imagem de perfil de Luis' className="w-[240px] m-auto sm:w-[560px] rounded-full shadow-lg shadow-blue-400" loading="lazy" />
             </div>
           </div>
         </section>
@@ -108,8 +108,12 @@ function App() {
                   &times;
                 </button>
               </div>
-              <img src={modalContent.image} alt={modalContent.title} className="w-32 h-auto mx-auto rounded-md mb-4 sm:w-48 md:w-60" />
-              <p className="text-gray-300 text-sm sm:text-base">{modalContent.description}</p>
+              <img
+                src={modalContent.image}
+                alt={modalContent.title}
+                className={`mx-auto rounded-md mb-4 ${modalContent.isVertical ? 'w-32 sm:w-40 md:w-48 lg:w-56 xl:w-64' : 'w-full sm:w-3/4 md:w-2/3 lg:w-3/4 xl:w-4/5'}`}
+              />
+              <p className="text-gray-300 text-sm sm:text-base text-justify">{modalContent.description}</p>
             </div>
           </div>
         )}
@@ -120,104 +124,141 @@ function App() {
             <h2 className="text-2xl font-semibold">Projetos</h2>
 
             <div className="flex flex-col sm:flex-row gap-10 mt-11">
-              <div className="border border-gray-500 rounded-md p-5 flex-1 bg-black bg-opacity-75">
+
+              <div className="border border-gray-500 rounded-md p-5 flex-1 bg-black bg-opacity-25">
                 <img src={Projeto1} className="w-36 h-auto mx-auto block" alt="imagem do aplicativo biodex" />
                 <h3 className="text-2xl font-semibold mt-8 text-white">Aplicativo BioDex</h3>
-                <p className="text-gray-400 text-sm mt-2">
-                  Desenvolvimento de um aplicativo com gamificação para um parque municipal juqueriquere, com o objetivo de fazer com que o passeio ao parque fosse interessante para as diversas faixas etárias que visitam o parque...
+                <p className="text-gray-400 text-sm mt-2 text-justify">
+                  Desenvolvimento de um aplicativo com gamificação para o parque municipal juqueriquere, com o objetivo de fazer com que o passeio ao parque fosse interessante para as diversas faixas etárias que visitam o parque...
                 </p>
+                <div className="mt-3">
+                  <h4 className="text-lg font-semibold text-white">Tecnologias Usadas:</h4>
+                  <div className="flex gap-2 mt-2">
+                    <span className="text-sm py-1 px-3 bg-gradient-to-t from-blue-500 to-cyan-500 rounded-full text-white">TypeScript</span>
+                    <span className="text-sm py-1 px-3 bg-gradient-to-t from-blue-500 to-cyan-500 rounded-full text-white">React Native</span>
+                    <span className="text-sm py-1 px-3 bg-gradient-to-t from-blue-500 to-cyan-500 rounded-full text-white">Expo</span>
+                  </div>
+                </div>
                 <div className="flex mt-12 gap-2">
                   <button
                     className="flex-1 text-sm py-3 bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700"
                     onClick={() => openModal({
                       title: 'Aplicativo BioDex',
                       image: Projeto1,
-                      description: 'Desenvolvimento de um aplicativo com gamificação para um parque municipal juqueriquere, com o objetivo de fazer com que o passeio ao parque fosse interessante para as diversas faixas etárias que visitam o parque'
+                      description: 'Desenvolvimento de um aplicativo com gamificação para o Parque Municipal Juqueriquere, com o objetivo de tornar o passeio ao parque interessante para diversas faixas etárias que o visitam. Trabalhei em colaboração com sete colegas para criar uma experiência interativa que engaja visitantes de todas as idades através de desafios, recompensas e conteúdos educativos. O aplicativo foi desenvolvido utilizando tecnologias como React Native para garantir uma interface fluida e acessível em dispositivos móveis. Além disso, implementamos recursos para proporcionar uma experiência imersiva e educativa sobre a flora e fauna do parque ',
+                      isVertical: true
                     })}
                   >
                     Saiba mais
                   </button>
-                  <button className="flex-1 text-sm py-3 border rounded-full hover:border-blue-500 hover:text-blue-500">
-                    Ver código
-                  </button>
+                  <a href="https://github.com/Programadorwolrd/pj3-Aplicativo-Municipal" target="_blank" rel="noopener noreferrer" className="flex-1">
+                    <button className="w-full text-sm py-3 border rounded-full hover:border-blue-500 hover:text-blue-500">
+                      Ver código
+                    </button>
+                  </a>
                 </div>
               </div>
 
-              <div className="border border-gray-500 rounded-md p-5 flex-1 bg-black bg-opacity-75">
+              <div className="border border-gray-500 rounded-md p-5 flex-1 bg-black bg-opacity-25">
                 <img src={Projeto2} className="w-36 h-auto mx-auto block" alt="imagem do aplicativo Job" />
                 <h3 className="text-2xl font-semibold mt-8">Aplicativo Job</h3>
-                <p className="text-gray-400 text-sm mt-2">
-                  A função do site de recarga é que o proprio usuário possa
-                  fazer seu cadastro, sua recarga por meio do cpf, vizualizar o
-                  horário das linhas e dar sugestões ou reclamações por meio da
-                  página sobre, que esta interligada com o site
-                  administrativo...
+                <p className="text-gray-400 text-sm mt-2 text-justify">
+                  Desenvolvi o aplicativo Job com o objetivo de tornar a procura de emprego e a ocupação de vagas mais prática e eficiente. O aplicativo foi desenvolvido utilizando tecnologias como React Native, Node.js e...
                 </p>
+                <div className="mt-3">
+                  <h4 className="text-lg font-semibold text-white">Tecnologias Usadas:</h4>
+                  <div className="flex gap-2 mt-2">
+                    <span className="text-sm py-1 px-3 bg-gradient-to-t from-blue-500 to-cyan-500 rounded-full text-white">JavaScript</span>
+                    <span className="text-sm py-1 px-3 bg-gradient-to-t from-blue-500 to-cyan-500 rounded-full text-white">React Native</span>
+                    <span className="text-sm py-1 px-3 bg-gradient-to-t from-blue-500 to-cyan-500 rounded-full text-white">Expo</span>
+                  </div>
+                </div>
                 <div className="flex mt-12 gap-2">
                   <button
                     className="flex-1 text-sm py-3 bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700"
                     onClick={() => openModal({
                       title: 'Aplicativo Job',
                       image: Projeto2,
-                      description: 'A função do site administrativo é que o administrador possa realizar os cruds de motorista, usuario, onibus e linhas, e tambem realizar a leitura dos comentarios deixados no site publico. O site tambem conta com um sistema de login onde o administrador só vai ter acesso as paginas após ter feito seu cadastro e login, na pagina inicial temos um grafico real feito com o chart.js e tambem contadores para cada tipo de usuario'
+                      description: 'Desenvolvi o aplicativo Job com o objetivo de tornar a procura de emprego e a ocupação de vagas mais prática e eficiente. O aplicativo foi desenvolvido utilizando tecnologias como React Native, Node.js e MySQL para garantir uma interface fluida e acessível em dispositivos móveis. Além disso, implementei recursos para proporcionar uma experiência imersiva e agradável aos usuários. Foquei em criar um app que não só simplifica o processo de busca de emprego, mas também oferece uma experiência personalizada e amigável para os usuários. Com esses recursos, o aplicativo Job se torna uma ferramenta poderosa tanto para candidatos quanto para empregadores, facilitando o encontro entre talentos e oportunidades.',
+                      isVertical: true
                     })}
                   >
                     Saiba mais
                   </button>
-                  <button className="flex-1 text-sm py-3 border rounded-full hover:border-blue-500 hover:text-blue-500">
-                    Ver código
-                  </button>
+                  <a href="https://github.com/Luis-eduardo-sl/jobsFull" target="_blank" rel="noopener noreferrer" className="flex-1">
+                    <button className="w-full text-sm py-3 border rounded-full hover:border-blue-500 hover:text-blue-500">
+                      Ver código
+                    </button>
+                  </a>
                 </div>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-10 mt-11">
-              <div className="border border-gray-500 rounded-md p-5 flex-1 bg-black bg-opacity-75">
+              <div className="border border-gray-500 rounded-md p-5 flex-1 bg-black bg-opacity-25">
                 <img src={Projeto33} alt='tela inicial do site administrativo' />
                 <h3 className="text-2xl font-semibold mt-8">Sistema Administrativo</h3>
-                <p className="text-gray-400 text-sm mt-2">
-                  A função do sistema administrativo é que o administrador possa realizar a criação, leitura, edição e exclusão de motoristas, usuários, ônibus e linhas, e também realizar a leitura dos comentários deixados no site público...
+                <p className="text-gray-400 text-sm mt-2 text-justify">
+                  O sistema administrativo da OnBus foi desenvolvido para proporcionar aos administradores uma plataforma eficiente e intuitiva para gerenciar diversos aspectos operacionais da empresa de ônibus...
                 </p>
+                <div className="mt-3">
+                  <h4 className="text-lg font-semibold text-white">Tecnologias Usadas:</h4>
+                  <div className="flex gap-2 mt-2">
+                    <span className="text-sm py-1 px-3 bg-gradient-to-t from-blue-500 to-cyan-500 rounded-full text-white">JavaScript</span>
+                    <span className="text-sm py-1 px-3 bg-gradient-to-t from-blue-500 to-cyan-500 rounded-full text-white">Node.js</span>
+                    <span className="text-sm py-1 px-3 bg-gradient-to-t from-blue-500 to-cyan-500 rounded-full text-white">Express.js</span>
+                  </div>
+                </div>
                 <div className="flex mt-12 gap-2">
                   <button
                     className="flex-1 text-sm py-3 bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700"
                     onClick={() => openModal({
                       title: 'Sistema Administrativo',
                       image: Projeto33,
-                      description: 'A função do site administrativo é que o administrador possa realizar os cruds de motorista, usuario, onibus e linhas, e tambem realizar a leitura dos comentarios deixados no site publico. O site tambem conta com um sistema de login onde o administrador só vai ter acesso as paginas após ter feito seu cadastro e login, na pagina inicial temos um grafico real feito com o chart.js e tambem contadores para cada tipo de usuario'
+                      description: 'O sistema administrativo foi desenvolvido para oferecer uma plataforma eficiente e intuitiva para gerenciar diversos aspectos operacionais da empresa. Com ele, é possível criar, ler, editar e excluir informações sobre motoristas, usuários, ônibus e linhas, garantindo que todos os dados estejam sempre atualizados e precisos. O sistema também inclui uma funcionalidade para gerenciar comentários e feedback deixados pelos usuários no site público. Além disso, o sistema conta com um dashboard intuitivo que fornece uma visão geral das operações, facilitando a tomada de decisões rápidas e informadas. O controle de acesso é rigorosamente gerenciado para assegurar que apenas usuários autorizados possam acessar funcionalidades e dados sensíveis, aumentando a segurança da informação. Integrado ao site público, o sistema assegura que informações cruciais, como horários de ônibus e rotas, estejam sempre atualizadas e acessíveis aos usuários finais, promovendo uma experiência de uso fluida e confiável.',
+                      isVertical: false
                     })}
                   >
                     Saiba mais
                   </button>
-                  <button className="flex-1 text-sm py-3 border rounded-full hover:border-blue-500 hover:text-blue-500">
-                    Ver código
-                  </button>
+                  <a href="https://github.com/Luis-eduardo-sl/pj2-g8-controle-onibus" target="_blank" rel="noopener noreferrer" className="flex-1">
+                    <button className="w-full text-sm py-3 border rounded-full hover:border-blue-500 hover:text-blue-500">
+                      Ver código
+                    </button>
+                  </a>
                 </div>
               </div>
-              <div className="border border-gray-500 rounded-md p-5 flex-1 bg-black bg-opacity-75">
+              <div className="border border-gray-500 rounded-md p-5 flex-1 bg-black bg-opacity-25">
                 <img src={Projeto4} alt='tela inicial do site de recarga' />
                 <h3 className="text-2xl font-semibold mt-8">Site de Recarga</h3>
-                <p className="text-gray-400 text-sm mt-2">
-                  A função do site de recarga é que o proprio usuário possa
-                  fazer seu cadastro, sua recarga por meio do cpf, vizualizar o
-                  horário das linhas e dar sugestões ou reclamações por meio da
-                  página sobre, que esta interligada com o site
-                  administrativo...
+                <p className="text-gray-400 text-sm mt-2 text-justify">
+                  O site de recarga foi projetado para oferecer uma experiência autônoma e conveniente para os usuários. Com ele, os próprios usuários podem se cadastrar, realizar recargas utilizando seu CPF...
                 </p>
+                <div className="mt-3">
+                  <h4 className="text-lg font-semibold text-white">Tecnologias Usadas:</h4>
+                  <div className="flex gap-2 mt-2">
+                    <span className="text-sm py-1 px-3 bg-gradient-to-t from-blue-500 to-cyan-500 rounded-full text-white">JavaScript</span>
+                    <span className="text-sm py-1 px-3 bg-gradient-to-t from-blue-500 to-cyan-500 rounded-full text-white">HTML & CSS</span>
+                    <span className="text-sm py-1 px-3 bg-gradient-to-t from-blue-500 to-cyan-500 rounded-full text-white">Bootstrap</span>
+                  </div>
+                </div>
                 <div className="flex mt-12 gap-2">
                   <button
                     className="flex-1 text-sm py-3 bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700"
                     onClick={() => openModal({
                       title: 'Site de Recarga',
                       image: Projeto4,
-                      description: 'A função do site de recarga é que o proprio usuário possa fazer seu cadastro, sua recarga por meio do cpf vizualizar o horário das linhas e dar sugestões ou reclamações por meio da página sobre, que esta interligada com o site administrativo'
+                      description: 'O site de recarga foi projetado para oferecer uma experiência autônoma e conveniente para os usuários. Com ele, os próprios usuários podem se cadastrar, realizar recargas utilizando seu CPF, visualizar os horários das linhas e enviar sugestões ou reclamações por meio de uma página dedicada. Essa página está integrada ao sistema administrativo, garantindo que todas as interações e feedbacks sejam diretamente atualizados e gerenciados pela equipe responsável.',
+                      isVertical: false
                     })}
                   >
                     Saiba mais
                   </button>
-                  <button className="flex-1 text-sm py-3 border rounded-full hover:border-blue-500 hover:text-blue-500">
-                    Ver código
-                  </button>
+                  <a href="https://github.com/Luis-eduardo-sl/pj2-g8-controle-onibus" target="_blank" rel="noopener noreferrer" className="flex-1">
+                    <button className="w-full text-sm py-3 border rounded-full hover:border-blue-500 hover:text-blue-500">
+                      Ver código
+                    </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -355,21 +396,23 @@ function App() {
             <p className="flex hidden sm:flex text-gray-300 text-sm">Copyright @ 2024</p>
           </div>
           <div>
-            <p className="text-gray-300 text-sm">luis0202.eduardo@gmail.com</p>
+            <p className="text-white text-sm">
+              <a href="mailto:luis0202.eduardo@gmail.com" className="text-white">luis0202.eduardo@gmail.com</a>
+            </p>
           </div>
           <div>
             <ul className="flex gap-4">
               <li>
-                <a href=""><img src={Linkedin} alt="simbolo do linkedin" className="w-8" /></a>
+                <a href="https://github.com/Luis-eduardo-sl" target="_blank"><img src={Github} alt="simbolo do Github" className="w-8" /></a>
               </li>
               <li>
-                <a href=""><img src={Github} alt="simbolo do Github" className="w-8" /></a>
+                <a href="https://www.linkedin.com/in/luis-eduardo-sl/" target="_blank"><img src={Linkedin} alt="simbolo do linkedin" className="w-8" /></a>
               </li>
             </ul>
           </div>
         </div>
       </footer>
-    </body>
+    </div>
   );
 }
 
