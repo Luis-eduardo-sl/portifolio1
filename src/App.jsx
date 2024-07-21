@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, lazy, Suspense } from 'react';
+import React, { useState, useRef, useEffect} from 'react';
 import "./App.css";
 import Perfil1 from "./assets/perfil.png";
 import Projeto1 from "./assets/biodex.png";
