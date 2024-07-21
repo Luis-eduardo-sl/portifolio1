@@ -71,11 +71,6 @@ body {
   height: 1.5rem;
 }
 
-@media (max-width: 768px) {
-  .social-icons {
-    display: none;
-  }
-}
 
 @keyframes typing-text {
   from {

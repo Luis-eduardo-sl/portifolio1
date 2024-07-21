@@ -1,18 +1,45 @@
+import React, { useState, useRef, useEffect } from 'react';
 import "./App.css";
-import Perfil1 from "./assets/perfil1.png";
-import Projeto1 from "./assets/biodex (1).png";
-import Projeto2 from "./assets/projeto2.png";
-import Projeto3 from "./assets/projeto3.png";
+import Perfil1 from "./assets/perfil.png";
+import Projeto1 from "./assets/biodex.png";
+import Projeto2 from "./assets/job.png";
+import Projeto33 from "./assets/protejo33.png";
+import Projeto4 from "./assets/projeto4.png";
 import Github from "./assets/github.svg";
 import Linkedin from "./assets/linkedin.svg";
 
+
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState({});
+  const modalRef = useRef(null);
+
+  const openModal = (content) => {
+    setModalContent(content);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        closeModal();
+      }
+    };
+
+    if (isModalOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [isModalOpen]);
 
   return (
     <body>
       <div class="background"></div>
       <header className="fixed top-0 left-4 right-4 bg-gray-800 rounded-full m-3 mx-auto max-w-screen-lg h-12 sm:h-16 sm:left-8 sm:right-8">
-
         <div className="container m-auto px-4 py-2 sm:py-4 max-w-screen-lg">
           <div className="flex justify-between items-center">
             <div>
@@ -39,7 +66,7 @@ function App() {
                 </li>
               </ul>
             </div>
-            <div className="social-icons flex gap-4">
+            <div className="social-icons flex gap-4 hidden sm:flex">
               <a href="https://github.com/Luis-eduardo-sl" target="_blank" rel="noopener noreferrer">
                 <img src={Github} alt="GitHub" className="w-6 h-6" />
               </a>
@@ -50,6 +77,7 @@ function App() {
           </div>
         </div>
       </header>
+
       <main className="pt-7 sm:pt-15">
         <section>
           <div className="container max-w-screen-lg m-auto px-4 pt-12 sm:py-32 flex flex-col sm:flex-row gap-6">
@@ -71,6 +99,22 @@ function App() {
           </div>
         </section>
 
+        {isModalOpen && (
+          <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4">
+            <div ref={modalRef} className="bg-gray-900 rounded-lg shadow-lg p-6 max-w-md w-full sm:max-w-lg md:max-w-xl lg:max-w-2xl border border-gray-600">
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-white">{modalContent.title}</h2>
+                <button onClick={closeModal} className="text-gray-400 hover:text-white text-2xl sm:text-3xl">
+                  &times;
+                </button>
+              </div>
+              <img src={modalContent.image} alt={modalContent.title} className="w-32 h-auto mx-auto rounded-md mb-4 sm:w-48 md:w-60" />
+              <p className="text-gray-300 text-sm sm:text-base">{modalContent.description}</p>
+            </div>
+          </div>
+        )}
+
+
         <section id="projetos">
           <div className="container max-w-screen-lg m-auto px-4 py-4 sm:py-12">
             <h2 className="text-2xl font-semibold">Projetos</h2>
@@ -78,15 +122,19 @@ function App() {
             <div className="flex flex-col sm:flex-row gap-10 mt-11">
               <div className="border border-gray-500 rounded-md p-5 flex-1 bg-black bg-opacity-75">
                 <img src={Projeto1} className="w-36 h-auto mx-auto block" alt="imagem do aplicativo biodex" />
-                <h3 className="text-2xl font-semibold mt-8">Sistema Administrativo</h3>
+                <h3 className="text-2xl font-semibold mt-8 text-white">Aplicativo BioDex</h3>
                 <p className="text-gray-400 text-sm mt-2">
-                  A função do sistema administrativo é que o administrador possa
-                  realizar a criação, leitura, edição e exclusão de motoristas,
-                  usuarios, onibus e linhas, e tambem realizar a leitura dos
-                  comentarios deixados no site publico...
+                  Desenvolvimento de um aplicativo com gamificação para um parque municipal juqueriquere, com o objetivo de fazer com que o passeio ao parque fosse interessante para as diversas faixas etárias que visitam o parque...
                 </p>
                 <div className="flex mt-12 gap-2">
-                  <button className="flex-1 text-sm py-3 bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700">
+                  <button
+                    className="flex-1 text-sm py-3 bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700"
+                    onClick={() => openModal({
+                      title: 'Sistema Administrativo',
+                      image: Projeto1,
+                      description: 'A função do site administrativo é que o administrador possa realizar os cruds de motorista, usuario, onibus e linhas, e tambem realizar a leitura dos comentarios deixados no site publico. O site tambem conta com um sistema de login onde o administrador só vai ter acesso as paginas após ter feito seu cadastro e login, na pagina inicial temos um grafico real feito com o chart.js e tambem contadores para cada tipo de usuario'
+                    })}
+                  >
                     Saiba mais
                   </button>
                   <button className="flex-1 text-sm py-3 border rounded-full hover:border-blue-500 hover:text-blue-500">
@@ -94,9 +142,10 @@ function App() {
                   </button>
                 </div>
               </div>
+
               <div className="border border-gray-500 rounded-md p-5 flex-1 bg-black bg-opacity-75">
-                <img src={Projeto2} />
-                <h3 className="text-2xl font-semibold mt-8">Site de Recarga</h3>
+                <img src={Projeto2} className="w-36 h-auto mx-auto block" alt="imagem do aplicativo Job" />
+                <h3 className="text-2xl font-semibold mt-8">Aplicativo Job</h3>
                 <p className="text-gray-400 text-sm mt-2">
                   A função do site de recarga é que o proprio usuário possa
                   fazer seu cadastro, sua recarga por meio do cpf, vizualizar o
@@ -105,7 +154,14 @@ function App() {
                   administrativo...
                 </p>
                 <div className="flex mt-12 gap-2">
-                  <button className="flex-1 text-sm py-3 bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700">
+                  <button
+                    className="flex-1 text-sm py-3 bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700"
+                    onClick={() => openModal({
+                      title: 'Sistema Administrativo',
+                      image: Projeto1,
+                      description: 'A função do site administrativo é que o administrador possa realizar os cruds de motorista, usuario, onibus e linhas, e tambem realizar a leitura dos comentarios deixados no site publico. O site tambem conta com um sistema de login onde o administrador só vai ter acesso as paginas após ter feito seu cadastro e login, na pagina inicial temos um grafico real feito com o chart.js e tambem contadores para cada tipo de usuario'
+                    })}
+                  >
                     Saiba mais
                   </button>
                   <button className="flex-1 text-sm py-3 border rounded-full hover:border-blue-500 hover:text-blue-500">
@@ -117,19 +173,20 @@ function App() {
 
             <div className="flex flex-col sm:flex-row gap-10 mt-11">
               <div className="border border-gray-500 rounded-md p-5 flex-1 bg-black bg-opacity-75">
-                <img src={Projeto3} />
-                <h3 className="text-2xl font-semibold mt-8">Sistema de Ônibus</h3>
+                <img src={Projeto33} />
+                <h3 className="text-2xl font-semibold mt-8">Sistema Administrativo</h3>
                 <p className="text-gray-400 text-sm mt-2">
-                  A função do sistema de catraca é que ao passar o numero do
-                  cartão o usuario seja redirecionado para uma tela de
-                  aprovado(onde vai receber a mensagem "Boa Viagem (nome do
-                  usuario) e o saldo restante " ou sera redirecionado para uma
-                  tela de erro(onde vai receber uma mensagem de erro relacionada
-                  ao problema como "saldo insuficiente" , "cartão não
-                  encontrado" , etc)...
+                  A função do sistema administrativo é que o administrador possa realizar a criação, leitura, edição e exclusão de motoristas, usuários, ônibus e linhas, e também realizar a leitura dos comentários deixados no site público...
                 </p>
                 <div className="flex mt-12 gap-2">
-                  <button className="flex-1 text-sm py-3 bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700">
+                  <button
+                    className="flex-1 text-sm py-3 bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700"
+                    onClick={() => openModal({
+                      title: 'Sistema Administrativo',
+                      image: Projeto1,
+                      description: 'A função do site administrativo é que o administrador possa realizar os cruds de motorista, usuario, onibus e linhas, e tambem realizar a leitura dos comentarios deixados no site publico. O site tambem conta com um sistema de login onde o administrador só vai ter acesso as paginas após ter feito seu cadastro e login, na pagina inicial temos um grafico real feito com o chart.js e tambem contadores para cada tipo de usuario'
+                    })}
+                  >
                     Saiba mais
                   </button>
                   <button className="flex-1 text-sm py-3 border rounded-full hover:border-blue-500 hover:text-blue-500">
@@ -138,19 +195,24 @@ function App() {
                 </div>
               </div>
               <div className="border border-gray-500 rounded-md p-5 flex-1 bg-black bg-opacity-75">
-                <img src={Projeto3} />
-                <h3 className="text-2xl font-semibold mt-8">Sistema de Ônibus</h3>
+                <img src={Projeto4} />
+                <h3 className="text-2xl font-semibold mt-8">Site de Recarga</h3>
                 <p className="text-gray-400 text-sm mt-2">
-                  A função do sistema de catraca é que ao passar o numero do
-                  cartão o usuario seja redirecionado para uma tela de
-                  aprovado(onde vai receber a mensagem "Boa Viagem (nome do
-                  usuario) e o saldo restante " ou sera redirecionado para uma
-                  tela de erro(onde vai receber uma mensagem de erro relacionada
-                  ao problema como "saldo insuficiente" , "cartão não
-                  encontrado" , etc)...
+                  A função do site de recarga é que o proprio usuário possa
+                  fazer seu cadastro, sua recarga por meio do cpf, vizualizar o
+                  horário das linhas e dar sugestões ou reclamações por meio da
+                  página sobre, que esta interligada com o site
+                  administrativo...
                 </p>
                 <div className="flex mt-12 gap-2">
-                  <button className="flex-1 text-sm py-3 bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700">
+                  <button
+                    className="flex-1 text-sm py-3 bg-gradient-to-t from-blue-500 rounded-full to-cyan-500 hover:from-blue-700 hover:to-cyan-700"
+                    onClick={() => openModal({
+                      title: 'Sistema Administrativo',
+                      image: Projeto1,
+                      description: 'A função do site administrativo é que o administrador possa realizar os cruds de motorista, usuario, onibus e linhas, e tambem realizar a leitura dos comentarios deixados no site publico. O site tambem conta com um sistema de login onde o administrador só vai ter acesso as paginas após ter feito seu cadastro e login, na pagina inicial temos um grafico real feito com o chart.js e tambem contadores para cada tipo de usuario'
+                    })}
+                  >
                     Saiba mais
                   </button>
                   <button className="flex-1 text-sm py-3 border rounded-full hover:border-blue-500 hover:text-blue-500">
